@@ -26,14 +26,15 @@ npx playwright install chromium
 
 ## Usage
 
-1. Open \`scan.js\` and set the \`URL\` near the top to the page you want to test.
-2. Run:
+Pass the page you want to test right after the command:
 
 \`\`\`bash
-npm run scan
+npm run scan -- https://example.com
 \`\`\`
 
-3. Open \`report.html\` in your browser to see the results.
+If you don't pass a URL, it scans the default page set in \`scan.js\`.
+
+After it runs, open \`report.html\` in your browser to see the results.
 
 ## Trying the built-in trap example
 
@@ -41,8 +42,13 @@ A deliberately broken page (\`trapped.html\`) is included so you can see the
 detector catch a real keyboard trap.
 
 1. In one terminal, serve the file locally: \`npx serve\`
-2. In \`scan.js\`, set \`URL\` to \`http://localhost:3000/trapped.html\`
-3. Run \`npm run scan\` — the report should show **FAIL** with a keyboard trap.
+2. In another terminal, run it against the served page:
+
+\`\`\`bash
+npm run scan -- http://localhost:3000/trapped.html
+\`\`\`
+
+The report should show **FAIL** with a keyboard trap detected.
 
 ## Notes & limitations
 
