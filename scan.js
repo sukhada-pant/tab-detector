@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const { AxeBuilder } = require('@axe-core/playwright');
 
 async function run() {
-  const URL = 'https://www.axelerant.com/';
+  const URL = process.argv[2] || 'https://www.axelerant.com/';
 
   // Open a visible browser window so you can watch it work.
   const browser = await chromium.launch({ headless: false });
