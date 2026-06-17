@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Trapped Modal Practice Page</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; }
+    .modal { border: 2px solid #c00; padding: 20px; width: 300px; margin-top: 20px; }
+    button, input { display: block; margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <h1>Practice page with a trapped modal</h1>
+  <a href="#somewhere">A link before the modal</a>
+
+  <div class="modal" role="dialog" aria-label="Broken dialog">
+    <h2>Subscribe</h2>
+    <input type="email" aria-label="Email address" placeholder="you@example.com">
+    <button id="submit">Submit</button>
+  </div>
+
+  <a href="#after">A link after the modal</a>
+
+  <script>
+    // This is the bug on purpose: whenever focus tries to leave the modal,
+    // we yank it straight back to the email box. A keyboard user can never
+    // get out — exactly the trap your detector should catch.
+    const modal = document.querySelector('.modal');
+    document.addEventListener('focusin', (e) => {
+      if (!modal.contains(e.target)) {
+        modal.querySelector('input').focus();
+      }
+    });
+  </script>
+</body>
+</html>

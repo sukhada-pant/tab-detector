@@ -1,0 +1,17 @@
+{
+  "name": "tab-detector",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "scan": "node scan.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "axe-core": "^4.12.1",
+    "playwright": "^1.61.0"
+  }
+}
