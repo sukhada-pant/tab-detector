@@ -71,7 +71,7 @@ async function run() {
   }
 
   // ---------- Combined verdict ----------
-// ---------- Combined verdict ----------
+
   const verdict = trapped ? 'FAIL' : 'PASS';
   console.log('\n===== SUMMARY =====');
   console.log(`axe-core issues: ${axeResults.violations.length}`);
